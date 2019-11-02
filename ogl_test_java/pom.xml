@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ogl_test</groupId>
+  <artifactId>ogl_test_java</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>ogl_test_java</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	  <dependency>
+	      <groupId>de.serviceflow.frankenstein.plugin.jogamp</groupId>
+	          <artifactId>plugin-jogamp</artifactId>
+	      <version>0.3.6</version>
+	  </dependency>
+  </dependencies>
+</project>

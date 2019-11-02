@@ -1,0 +1,24 @@
+#version 450
+layout (binding = 0) readonly buffer bottom_blob1 { float A[]; };
+layout (binding = 1) readonly buffer bottom_blob2 { float B[]; };
+layout (binding = 2)  buffer top_blob { float outputs[]; };
+layout (location = 3) uniform ivec2 A_size;
+layout (location = 4) uniform ivec2 B_size;
+layout (local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+void main()
+{
+    int ax = A_size.x;
+    int ay = A_size.y;
+    int bx = B_size.x;
+    int by = B_size.y;
+    int gx = int(gl_GlobalInvocationID.x);
+    int gy = int(gl_GlobalInvocationID.y);
+    int gz = int(gl_GlobalInvocationID.z);
+    float sum = float(0.0f);
+    int output_offset = B_size.y * gx + gy;
+    for(int i = 0;i < A_size.y; i++)
+    {
+        sum += A[i + gx * A_size.y] * B[i * B_size.y + gy];
+    }
+    outputs[output_offset] = float(sum);
+}
